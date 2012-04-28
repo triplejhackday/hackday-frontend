@@ -163,7 +163,20 @@ section h1 {
 	position: absolute;
 }
 
-/* Hottest 100 ============================================= */
+/* Tweets ================================================== */
+
+.handle {
+	margin-left: 10px;
+}
+
+.handle:before
+{ 
+content:"@";
+}
+
+.sentiment span {
+	font-weight: bold;
+}
 
 
 /* Clear =================================================== */

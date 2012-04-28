@@ -18,12 +18,13 @@ var playout = {
 					if(count>9) {
 						return false;
 					}
-					
+					console.log(data);
 					var id = this.track_id;
 					if(id != prev_track_id) {
 						prev_track_id = id;
 						var artist = this.artistname;
 						var track = this.title;
+						var id = this.id;
 						if(count==0) {
 							helper.artist = artist;
 							helper.track = track;
@@ -37,17 +38,11 @@ var playout = {
 						var $track = $('<p/>').addClass('track').html(track);
 						var $info = $('<div/>').append($artist,$track);
 						var $img = $('<img/>').attr('src',img);
-						var $li = $('<li/>').append($img,$info);
+						var $li = $('<li/>').attr('id',id).append($img,$info);
 						playout.$elem.append($li);
 						count++;
 					}
 				});
-				
-				$('#play-history').kwicks({  
-			        max : 250,  
-			        spacing : 0,
-			        sticky: true
-			    });
 			},
 			error: function() {
 				console.log('error!');

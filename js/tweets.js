@@ -6,32 +6,41 @@ var tweets = {
 	baseurl: 'json/tweets.php',
 	
 	update: function(artist) {
-		var $elem = media.$elem.find('ul');
+		var $elem = tweets.$elem.find('ul');
 		$elem.empty();
-		media.$elem.find('p.artist').remove();
-		media.$elem.find('p.sentiment').remove();
+		tweets.$elem.find('p.artist').remove();
+		tweets.$elem.find('p.sentiment').remove();
 		var query = tweets.baseurl + '?artist=' + encodeURIComponent(artist);
-		console.log(query);
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,
 			success: function(data) {
 				console.log(data);
 				if(data.tweets.length>0) {
+					var $artist = $('<p/>').addClass('artist').text(artist);
+					if(data.handle) {
+						var $handle = $('<a/>').addClass('handle').attr('target','_blank').attr('href','http://twitter.com/#!/'+data.handle).text(data.handle);
+						$artist.append($handle);
+					}
+					$elem.before($artist);
+				
+					var sentiment = "Twitter is pretty <span>" + data.sentiment.description + "</span> about this artist.";
+					var $sentiment = $('<p/>').addClass('sentiment').html(sentiment);
+					$elem.before($sentiment);
+				
 					$(data.tweets).each(function() {
-						/*
-						var url = this.url;
-						var title = this.title;
-						var description = this.description;
-						var date = this.date;
-						var type = this.type;
+						var text = this.text;
+						var id = this.id;
+						var authorId = this.author.id;
+						var authorName = this.author.name;
+						var authorImg = this.author.img;
+						var url = 'http://twitter.com/#!/' + authorId + '/status/' + id;
 						
-						var $title = $('<p/>').addClass('title').append($('<a/>').text(title + ' [' + type + ']').attr('href',url).attr('target','_blank'));
-						var $date = $('<p/>').addClass('date').text(date);
-						var $description = $('<p/>').addClass('description').text(description);
-						var $li = $('<li/>').append($title,$date,$description);
+						var $img = $('<img/>').attr('src',authorImg);
+						var $author = $('<p/>').addClass('author').append($img,$('<a/>').text(authorName).attr('href',url).attr('target','_blank'));
+						var $text = $('<p/>').addClass('text').text(text);
+						var $li = $('<li/>').append($author,$text);
 						$elem.append($li);
-						*/
 					});
 				} else {
 					$elem.append($('<p/>').html('No tweets'));

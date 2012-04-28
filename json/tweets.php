@@ -88,7 +88,7 @@ function getSentiment($tweets) {
 		$sentiment = "negative";
 	}
 	
-	return array("sentiment"=>$sentiment,"positive"=>$good,"negative"=>$bad);
+	return array("description"=>$sentiment,"positive"=>$good,"negative"=>$bad);
 }
 
 
