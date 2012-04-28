@@ -3,11 +3,13 @@ $(document).ready(function() {
 	helper.getElems();
 	helper.addEvents();
     playout.init();
+    setTimeout('playout.update();',10000);
 });
 
 
 var helper = {
 	default_album_image: 'http://www.abc.net.au/triplej/albums/default/covers/100.jpg',
+	checkInterval: 30000, 
 	
 	getElems: function() {
 		playout.$elem = $('#play-history');
@@ -21,6 +23,7 @@ var helper = {
 		playout.$elem.find('li').live('click', function(e) {
 			helper.artist = $(this).find('.artist').text();
 			helper.track =  $(this).find('.track').text();
+			helper.trackId =  $(this).attr('id');
 			playout.$elem.find('li').removeClass('active');
 			$(this).addClass('active');
 			helper.resetTabs();
@@ -36,7 +39,6 @@ var helper = {
 			$('#tabs li').removeClass('active');
 			$(this).addClass('active');
 			var tab = '#' + $(this).attr('data-tab');
-			console.log($(tab));
 			$('#content').scrollTo(tab, 500);
 			e.preventDefault();
 		});
@@ -53,6 +55,10 @@ var helper = {
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);
 		//tweets.update(helper.artist);
+	},
+	
+	makeTrackActive: function() {
+	
 	},
 	
 	resize: function() {
