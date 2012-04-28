@@ -89,6 +89,12 @@ section {
 	font-family: Helvetica, sans-serif;
 }
 
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
 a {
 	text-decoration: none;
 	color: red;
@@ -98,33 +104,80 @@ li {
 	list-style-position: inside;
 }
 
-header {
-	width: 100%;
-	text-align: center;
-	border-bottom: 2px solid black;
-	background-color: #ccc;
-	margin-bottom: 20px;
-}
-
-header a {
-	display: block;
-	padding: 10px 0;
-}
-
-#wrapper {
-	width: 1024px;
-	margin: 0 auto;
+#content {
+	height: 100%;
+	margin: 0;
+	position: absolute;
+	left: 250px;
+	top: 54px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 20px;
 }
 
 section {
 	padding: 10px;
 	border: 1px solid #ddd;
-	margin-bottom: 10px;
 }
 
 section h1 {
 	font-size: 120%;
 	margin-bottom: 10px;
+}
+
+#tabs {
+	position: fixed;
+	top: 0;
+	left: 250px;
+	width: 100%;
+	height: 54px;
+	background-color: #333;
+	color: #ddd; 
+	list-style-type: none;
+}
+
+#tabs li {
+	cursor: hand;
+	float: left;
+	display: block;
+	padding: 20px 40px;
+}
+
+#tabs li:hover {
+	background-color: red;
+}
+
+#sidebar {
+	position: absolute;
+	left:0;
+	top:0;
+	width: 250px;
+	height: 100%;
+	overflow: scroll;
+	background-color: #eee;
+}
+
+#program {
+	position: fixed;
+	top: 0;
+	height: 54px;
+	width: 250px;
+	background-color: red;
+	z-index: 999;
+}
+
+#program img {
+	height: 54px;
+	position: relative;
+}
+
+#program p {
+	position: absolute;
+	color: white;
+	left: 80px;
+	width: 170px;
+	text-align: center;
+	top: 20px;
 }
 
 /* Playout History ========================================= */
@@ -133,11 +186,12 @@ section h1 {
 	list-style-type: none;
 	overflow: auto;
 	position: relative;
-	margin: 40px auto;
+	top: 54px;
+	margin: 0;
 }
 
 #play-history li {
-	width: 100px;
+	width: 250px;
 	height: 100px;
 	float: left;
 	display: block;
@@ -147,8 +201,15 @@ section h1 {
     cursor: hand;
 }
 
-#play-history li:first-child, #play-history li:hover {
+#play-history li:first-child {
+	background-color: #333; !important;
 	opacity: 1;
+	color: #eee;
+} 
+#play-history li:hover {
+	opacity: 1;
+	background-color: #555;
+	color: #eee;
 }
 
 #play-history li img {
@@ -158,9 +219,13 @@ section h1 {
 }
 
 #play-history li div {
-	width: 140px;
+	width: 130px;
 	left: 110px;
 	position: absolute;
+}
+
+#play-history li div>p:first-child {
+	margin-top: 10px;
 }
 
 /* Tweets ================================================== */

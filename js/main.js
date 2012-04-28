@@ -1,6 +1,7 @@
 $(document).ready(function() {
+	helper.resize();
 	helper.getElems();
-	helper.addClicks();
+	helper.addEvents();
     playout.init();
 });
 
@@ -16,12 +17,16 @@ var helper = {
 		tweets.$elem = $('#tweets');
 	},
 	
-	addClicks: function() {
+	addEvents: function() {
 		playout.$elem.find('li').live('click', function(e) {
 			helper.artist = $(this).find('.artist').text();
 			helper.track =  $(this).find('.track').text();
 			helper.update();
 			e.preventDefault();
+		});
+		
+		$(window).resize(function() {
+			helper.resize();
 		});
 	},
 	
@@ -30,6 +35,15 @@ var helper = {
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);
 		tweets.update(helper.artist);
+	},
+	
+	resize: function() {
+		var window_width = $(window).width();
+		var content_width = window_width - 290;
+		var window_height = $(window).height();
+		var content_height = window_height - 94;
+		$('#content').width(content_width).height(content_height); 
+		
 	}
 	
 };
