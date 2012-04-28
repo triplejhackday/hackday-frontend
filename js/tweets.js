@@ -1,20 +1,25 @@
 "use strict";
 
-/* Media namespace */
+/* Tweets namespace */
 
-var media = {
-	baseurl: 'http://triplejgizmo.abc.net.au/hottest100/json/media/index.php',
+var tweets = {
+	baseurl: 'json/tweets.php',
 	
 	update: function(artist) {
 		var $elem = media.$elem.find('ul');
 		$elem.empty();
-		var query = media.baseurl + '?artist=' + encodeURIComponent(artist);
+		media.$elem.find('p.artist').remove();
+		media.$elem.find('p.sentiment').remove();
+		var query = tweets.baseurl + '?artist=' + encodeURIComponent(artist);
+		console.log(query);
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,
 			success: function(data) {
-				if(data.length>0) {
-					$(data).each(function() {
+				console.log(data);
+				if(data.tweets.length>0) {
+					$(data.tweets).each(function() {
+						/*
 						var url = this.url;
 						var title = this.title;
 						var description = this.description;
@@ -26,9 +31,10 @@ var media = {
 						var $description = $('<p/>').addClass('description').text(description);
 						var $li = $('<li/>').append($title,$date,$description);
 						$elem.append($li);
+						*/
 					});
 				} else {
-					$elem.append($('<p/>').html('No results'));
+					$elem.append($('<p/>').html('No tweets'));
 				}
 			},
 			error: function() {

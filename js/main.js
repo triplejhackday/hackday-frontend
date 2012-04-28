@@ -13,6 +13,7 @@ var helper = {
 		hottest100.$elem = $('#hottest100');
 		media.$elem = $('#media');
 		featurealbums.$elem = $('#featurealbums');
+		tweets.$elem = $('#tweets');
 	},
 	
 	addClicks: function() {
@@ -25,11 +26,10 @@ var helper = {
 	},
 	
 	update: function() {
-		console.log(helper.artist);
-		console.log(helper.track);
 		hottest100.update(helper.artist);
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);
+		tweets.update(helper.artist);
 	}
 	
 };

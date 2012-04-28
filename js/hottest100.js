@@ -8,7 +8,7 @@ var hottest100 = {
 	update: function(artist) {
 		var $elem = hottest100.$elem.find('ul');
 		$elem.empty();
-		var query = hottest100.baseurl + '?artist=' + artist;
+		var query = hottest100.baseurl + '?artist=' + encodeURIComponent(artist);
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,

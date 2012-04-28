@@ -5,7 +5,7 @@ include('keys.inc');
 
 $artist = @$_GET['artist'];
 $callback = @$_GET['callback'];
-$good_words = array('good','#nowplaying','excellent','liked','fantastic','great','gr8','awesome','sick','amazing','wicked','wickid','grouse','choice','mad','stoked','excited','epic',':)','excitement','killer','brilliant','pumped','best','must hear','amped','dope','omg','omfg','magical','owned','rocking','wild','hot','top');
+$good_words = array('good','#nowplaying','excellent','liked','fantastic','great','gr8','awesome','sick','amazing','wicked','wickid','grouse','choice','mad','stoked','excited','epic',':)','excitement','killer','brilliant','pumped','best','happy','amped','dope','omg','omfg','magical','owned','rocking','wild','hot','top');
 $bad_words = array('terrible','bad','awful','late','crap','dissapointing','disapointing','dissappointing','shithouse','mingin');
 
 $output = array();
@@ -16,7 +16,7 @@ if($artist) {
 	
 	$twitter_search = array($artist);
 	if($twitter_handle) {
-		$twitter_search[] = $twitter_handle; 
+		$twitter_search[] = '@' . $twitter_handle; 
 	}
 	
 	$tweets = getTweets($twitter_search);

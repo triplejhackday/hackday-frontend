@@ -8,12 +8,11 @@ var featurealbums = {
 	update: function(artist) {
 		var $elem = featurealbums.$elem.find('ul');
 		$elem.empty();
-		var query = featurealbums.baseurl + '?artist=' + artist;
+		var query = featurealbums.baseurl + '?artist=' + encodeURIComponent(artist);
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,
 			success: function(data) {
-				console.log(data);
 				if(data.length>0) {
 					$(data).each(function() {
 						var url = this.review_url;
