@@ -191,6 +191,23 @@ section>div {
 	text-align: center;
 	top: 20px;
 }
+img.bg {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+section div.overlay {
+	width: 93%;
+	padding: 4%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: white;
+	background-color: black;
+	z-index: 10;
+}
 
 /* Playout History ========================================= */
 
@@ -239,6 +256,20 @@ section>div {
 	margin-top: 10px;
 }
 
+/* Media =================================================== */
+
+#media li {
+	width: 340px;
+	height: 227px;
+	margin: 20px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	color: white;
+	background-color: #EEE;
+}
+
+
 /* Tweets ================================================== */
 
 .handle {
@@ -261,4 +292,6 @@ content:"@";
 	display: block;
 	clear: both;
 }
+
+
 

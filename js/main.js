@@ -3,7 +3,7 @@ $(document).ready(function() {
 	helper.getElems();
 	helper.addEvents();
     playout.init();
-    setTimeout('playout.update();',10000);
+    setTimeout('playout.update();',helper.checkInterval);
 });
 
 
@@ -17,6 +17,22 @@ var helper = {
 		media.$elem = $('#media');
 		featurealbums.$elem = $('#featurealbums');
 		tweets.$elem = $('#tweets');
+	},
+	
+	isotopeInit: function($elem) {
+		console.log('init');
+		$elem.isotope({
+			itemSelector : 'li',
+			layoutMode : 'fitRows',
+			fitRows: {
+			    columnWidth: 340,
+			}
+		});
+	},
+	
+	isotopeDestroy: function($elem) {
+		console.log('destroy');
+		$elem.isotope('destroy');
 	},
 	
 	addEvents: function() {
@@ -57,8 +73,8 @@ var helper = {
 		//tweets.update(helper.artist);
 	},
 	
-	makeTrackActive: function() {
-	
+	getLargeImage: function(url) {
+		return url.replace('100.jpg','340.jpg');
 	},
 	
 	resize: function() {

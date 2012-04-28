@@ -7,6 +7,7 @@ var media = {
 	
 	update: function(artist) {
 		var $elem = media.$elem.find('ul');
+
 		$elem.empty();
 		var query = media.baseurl + '?artist=' + encodeURIComponent(artist);
 		$.ajax({
@@ -20,13 +21,19 @@ var media = {
 						var description = this.description;
 						var date = this.date;
 						var type = this.type;
+						var img = helper.getLargeImage(this.image);
 						
 						var $title = $('<p/>').addClass('title').append($('<a/>').text(title + ' [' + type + ']').attr('href',url).attr('target','_blank'));
 						var $date = $('<p/>').addClass('date').text(date);
 						var $description = $('<p/>').addClass('description').text(description);
-						var $li = $('<li/>').append($title,$date,$description);
+						var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
+						    $img.hide();
+						});
+						var $overlay = $('<div/>').append($title,$date,$description).addClass('overlay');
+						var $li = $('<li/>').append($img,$overlay)
 						$elem.append($li);
 					});
+					
 				} else {
 					$elem.append($('<p/>').html('No results'));
 				}
