@@ -3,6 +3,7 @@
 		<title>triple j | Music Hack Day</title>
 		<script src='js/jquery.min.js'></script>
 		<script src='js/lazyload.jquery.js'></script>
+		<script src='js/scrollto.jquery.js'></script>
 		<script src='js/keys.js'></script>
 		<script src='js/playout.js'></script>
 		<script src='js/hottest100.js'></script>
@@ -22,22 +23,30 @@
 		</div>
 		<div id="content">
 			<ul id="tabs">
-				<li>One</li>
-				<li>Two</li>
-				<li>Three</li>
+				<li data-tab='unearthed' class='active'>Unearthed</li>
+				<li data-tab='media'>Media</li>
+				<li data-tab='info'>Info</li>
 			</ul>
-			<section id="hottest100">
-				<h1>Hottest 100</h1><ul></ul>
-			</section>
-			<section id="media">
-				<h1>Media</h1><ul></ul>
-			</section>
-			<section id="featurealbums">
-				<h1>Feature Albums</h1><ul></ul>
-			</section>
-			<section id="tweets">
-				<h1>Tweets</h1><ul></ul>
-			</section>
+			<div id="slider">
+				<section id="unearthed">
+					<h1>Unearthed</h1><p>Placeholder</p><ul></ul>
+				</section>
+				<section id="media">
+					<h1>Media</h1><ul></ul>
+				</section>
+				<section id="info">
+					<div id="hottest100">
+						<h1>Hottest 100</h1><ul></ul>
+					</div>
+					<div id="featurealbums">
+						<h1>Feature Albums</h1><ul></ul>
+					</div>
+				</section>
+				<!--
+				<section id="tweets">
+					<h1>Tweets</h1><ul></ul>
+				</section>-->
+			</div>
 		</div>
 	</body>
 </html>

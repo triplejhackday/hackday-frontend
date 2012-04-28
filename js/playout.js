@@ -25,11 +25,6 @@ var playout = {
 						var artist = this.artistname;
 						var track = this.title;
 						var id = this.id;
-						if(count==0) {
-							helper.artist = artist;
-							helper.track = track;
-							helper.update();
-						}
 						var img = this.albumimage;
 						if(!img) {
 							img = helper.default_album_image;
@@ -40,6 +35,12 @@ var playout = {
 						var $img = $('<img/>').attr('src',img);
 						var $li = $('<li/>').attr('id',id).append($img,$info);
 						playout.$elem.append($li);
+						if(count==0) {
+							helper.artist = artist;
+							helper.track = track;
+							playout.$elem.find('li:first-child').addClass('active');
+							helper.update();
+						}
 						count++;
 					}
 				});

@@ -21,6 +21,9 @@ var helper = {
 		playout.$elem.find('li').live('click', function(e) {
 			helper.artist = $(this).find('.artist').text();
 			helper.track =  $(this).find('.track').text();
+			playout.$elem.find('li').removeClass('active');
+			$(this).addClass('active');
+			helper.resetTabs();
 			helper.update();
 			e.preventDefault();
 		});
@@ -28,22 +31,39 @@ var helper = {
 		$(window).resize(function() {
 			helper.resize();
 		});
+		
+		$('#tabs').find('li').live('click', function(e) {
+			$('#tabs li').removeClass('active');
+			$(this).addClass('active');
+			var tab = '#' + $(this).attr('data-tab');
+			console.log($(tab));
+			$('#content').scrollTo(tab, 500);
+			e.preventDefault();
+		});
+	},
+	
+	resetTabs: function() {
+		$('#content').scrollTo('#unearthed', 0);
+		$('#tabs li').removeClass('active');
+		$('#tabs li:first-child').addClass('active');
 	},
 	
 	update: function() {
 		hottest100.update(helper.artist);
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);
-		tweets.update(helper.artist);
+		//tweets.update(helper.artist);
 	},
 	
 	resize: function() {
+		var tab = '#' + $('#tabs li.active').attr('data-tab');
+		$('#content').scrollTo(tab, 0);
 		var window_width = $(window).width();
-		var content_width = window_width - 290;
+		var content_width = window_width - 250;
 		var window_height = $(window).height();
-		var content_height = window_height - 94;
+		var content_height = window_height - 54;
 		$('#content').width(content_width).height(content_height); 
-		
+		$('#content section').width(content_width - 40).height(content_height - 40); 
 	}
 	
 };
