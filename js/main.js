@@ -11,6 +11,7 @@ var helper = {
 		playout.$elem = $('#play-history');
 		hottest100.$elem = $('#hottest100');
 		media.$elem = $('#media');
+		featurealbums.$elem = $('#featurealbums');
 	},
 	
 	update: function() {
@@ -18,6 +19,7 @@ var helper = {
 		helper.track = playout.getCurrentTrack();
 		hottest100.update(helper.artist);
 		media.update(helper.artist);
+		featurealbums.update(helper.artist);
 	}
 	
 };
