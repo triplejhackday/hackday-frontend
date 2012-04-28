@@ -17,8 +17,9 @@ var media = {
 						var title = this.title;
 						var description = this.description;
 						var date = this.date;
+						var type = this.type;
 						
-						var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
+						var $title = $('<p/>').addClass('title').append($('<a/>').text(title + ' [' + type + ']').attr('href',url).attr('target','_blank'));
 						var $date = $('<p/>').addClass('date').text(date);
 						var $description = $('<p/>').addClass('description').text(description);
 						var $li = $('<li/>').append($title,$date,$description);
