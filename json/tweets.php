@@ -2,6 +2,7 @@
 header('Content-type: application/json');
 
 include('keys.inc');
+include('common.inc');
 
 $artist = @$_GET['artist'];
 $callback = @$_GET['callback'];
@@ -53,16 +54,6 @@ function getTwitterHandle($key,$artist) {
 	$xml = simplexml_load_file($url);
 	$twitter_handle = (string) @$xml->artist->twitter;
 	return $twitter_handle;
-}
-
-function outputJson($data,$callback) {
-	$data = json_encode($data);
-	if($callback) {
-		echo $callback . '(' . $data . ')';
-	} else {
-		echo $data;
-	}
-	exit;
 }
 
 function getSentiment($tweets) {
