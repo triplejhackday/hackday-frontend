@@ -135,7 +135,7 @@ section {
     opacity: 0.7;
 }
 
-#play-history li:last-child, #play-history li:hover {
+#play-history li:first-child, #play-history li:hover {
 	opacity: 1;
 }
 

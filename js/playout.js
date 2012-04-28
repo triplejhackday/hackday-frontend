@@ -3,7 +3,7 @@
 /* Playout namespace */
 var playout = {
 	baseurl: 'http://triplejgizmo.abc.net.au/pav-proxy/',
-	plays_query: "http://triplejgizmo.abc.net.au/pav-proxy/?pass=" + pav_key + "&query=" + encodeURIComponent('plays.json?channel=4&limit=10'),
+	plays_query: "http://triplejgizmo.abc.net.au/pav-proxy/?pass=" + pav_key + "&query=" + encodeURIComponent('plays.json?channel=4&limit=8'),
 
 	init: function() {
 		$.ajax({
@@ -29,7 +29,8 @@ var playout = {
 				
 				$('#play-history').kwicks({  
 			        max : 250,  
-			        spacing : 0  
+			        spacing : 0,
+			        sticky: true
 			    });
 			    
 			},
