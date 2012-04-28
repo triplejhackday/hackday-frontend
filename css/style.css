@@ -115,6 +115,42 @@ section {
 	margin-bottom: 10px;
 }
 
+/* Playout History ========================================= */
+
+#play-history {
+	list-style-type: none;
+	overflow: auto;
+	position: relative;
+	margin: 40px auto;
+}
+
+#play-history li {
+	width: 100px;
+	height: 100px;
+	float: left;
+	font-size: 75%;
+	display: block;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.7;
+}
+
+#play-history li:last-child, #play-history li:hover {
+	opacity: 1;
+}
+
+#play-history li img {
+	float: left;
+	width: 100px;
+	height: 100px;
+}
+
+#play-history li div {
+	width: 140px;
+	left: 110px;
+	position: absolute;
+}
+
 
 /* Clear =================================================== */
 
