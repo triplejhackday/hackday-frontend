@@ -2,6 +2,7 @@ $(document).ready(function() {
 	helper.resize();
 	helper.getElems();
 	helper.addEvents();
+	program.update();
     playout.init();
     setTimeout('playout.update();',helper.checkInterval);
 });
@@ -17,22 +18,7 @@ var helper = {
 		media.$elem = $('#media');
 		featurealbums.$elem = $('#featurealbums');
 		tweets.$elem = $('#tweets');
-	},
-	
-	isotopeInit: function($elem) {
-		console.log('init');
-		$elem.isotope({
-			itemSelector : 'li',
-			layoutMode : 'fitRows',
-			fitRows: {
-			    columnWidth: 340,
-			}
-		});
-	},
-	
-	isotopeDestroy: function($elem) {
-		console.log('destroy');
-		$elem.isotope('destroy');
+		program.$elem = $('#program');
 	},
 	
 	addEvents: function() {
