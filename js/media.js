@@ -6,11 +6,15 @@ var media = {
 	baseurl: 'http://triplejgizmo.abc.net.au/hottest100/json/media/index.php',
 	
 	update: function(artist) {
+		var $elem = media.$elem.find('ul');
+		console.log(media.$elem);
+		$elem.empty();
 		var query = media.baseurl + '?artist=' + artist;
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,
 			success: function(data) {
+				var $elem = media.$elem.find('ul');
 				if(data.length>0) {
 					$(data).each(function() {
 						var url = this.url;
@@ -23,10 +27,10 @@ var media = {
 						var $date = $('<p/>').addClass('date').text(date);
 						var $description = $('<p/>').addClass('description').text(description);
 						var $li = $('<li/>').append($title,$date,$description);
-						media.$elem.append($li);
+						$elem.append($li);
 					});
 				} else {
-					media.$elem.append($('<p/>').html('No results'));
+					$elem.append($('<p/>').html('No results'));
 				}
 			},
 			error: function() {

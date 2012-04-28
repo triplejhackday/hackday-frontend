@@ -24,6 +24,11 @@ var playout = {
 						prev_track_id = id;
 						var artist = this.artistname;
 						var track = this.title;
+						if(count==0) {
+							helper.artist = artist;
+							helper.track = track;
+							helper.update();
+						}
 						var img = this.albumimage;
 						if(!img) {
 							img = helper.default_album_image;
@@ -43,8 +48,6 @@ var playout = {
 			        spacing : 0,
 			        sticky: true
 			    });
-			    
-			    helper.update();
 			},
 			error: function() {
 				console.log('error!');

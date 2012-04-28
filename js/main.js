@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	helper.getElems();
+	helper.addClicks();
     playout.init();
 });
 
@@ -14,9 +15,18 @@ var helper = {
 		featurealbums.$elem = $('#featurealbums');
 	},
 	
+	addClicks: function() {
+		playout.$elem.find('li').live('click', function(e) {
+			helper.artist = $(this).find('.artist').text();
+			helper.track =  $(this).find('.track').text();
+			helper.update();
+			e.preventDefault();
+		});
+	},
+	
 	update: function() {
-		helper.artist = playout.getCurrentArtist();
-		helper.track = playout.getCurrentTrack();
+		console.log(helper.artist);
+		console.log(helper.track);
 		hottest100.update(helper.artist);
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);

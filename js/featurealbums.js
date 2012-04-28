@@ -6,6 +6,8 @@ var featurealbums = {
 	baseurl: 'http://triplejgizmo.abc.net.au/featurealbums/json/index.php',
 	
 	update: function(artist) {
+		var $elem = featurealbums.$elem.find('ul');
+		$elem.empty();
 		var query = featurealbums.baseurl + '?artist=' + artist;
 		$.ajax({
 			dataType: 'jsonp',
@@ -21,10 +23,10 @@ var featurealbums = {
 						var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
 						var $date = $('<p/>').addClass('date').text(date);
 						var $li = $('<li/>').append($title,$date);
-						featurealbums.$elem.append($li);
+						$elem.append($li);
 					});
 				} else {
-					featurealbums.$elem.append($('<p/>').html('No results'));
+					$elem.append($('<p/>').html('No results'));
 				}
 			},
 			error: function() {
