@@ -92,8 +92,6 @@ section {
 a {
 	text-decoration: none;
 	color: red;
-	display: block;
-	padding: 10px 0;
 }
 
 header {
@@ -102,6 +100,11 @@ header {
 	border-bottom: 2px solid black;
 	background-color: #ccc;
 	margin-bottom: 20px;
+}
+
+header a {
+	display: block;
+	padding: 10px 0;
 }
 
 #wrapper {
