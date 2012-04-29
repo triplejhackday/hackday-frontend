@@ -7,6 +7,7 @@ var program = {
 	
 	update: function() {
 		var query = program.baseurl;
+		console.log(query);
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,
@@ -18,8 +19,11 @@ var program = {
 					program.$elem.find('p').text(title);
 				}
 			},
-			error: function() {
+			error: function(a,b,c) {
 				console.log('error!');
+				console.log(a);
+				console.log(b);
+				console.log(c);
 			}
 		});
 	}
