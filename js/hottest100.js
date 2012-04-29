@@ -21,10 +21,17 @@ var hottest100 = {
 						var track = this.track;
 						var position = this.position;
 						var year = this.year;
+						var img = 'img/hottest100/' + year + '/' + position + '.jpg';
+						
 						var $artist = $('<p/>').addClass('artist').text(artist);
 						var $track = $('<p/>').addClass('track').text(track);
 						var $position = $('<p/>').addClass('position').text(year + ": #" + position);
-						var $li = $('<li/>').append($track,$artist,$position);
+						var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
+						    $img.hide();
+						});
+						var $overlay = $('<div/>').append($track,$artist,$position).addClass('overlay');
+						var $li = $('<li/>').append($img,$overlay);
+						
 						$elem.append($li);
 					});
 					hottest100.hasContent = true;

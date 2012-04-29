@@ -212,6 +212,14 @@ img.bg {
 	left: 0;
 }
 
+section li {
+	position: relative;
+}
+
+section>div {
+	margin-bottom: 20px;
+}
+
 section div.overlay {
 	width: 93%;
 	padding: 4%;
@@ -315,6 +323,23 @@ content:"@";
 	font-weight: bold;
 }
 
+
+/* Hottest100 ============================================== */
+
+#hottest100 ul {
+	overflow: auto;
+}
+
+#hottest100 li {
+	width: 340px;
+	height: 340px;
+	margin: 0 1px 1px 0;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	color: white;
+	background-color: #EEE;
+}
 
 /* Clear =================================================== */
 
