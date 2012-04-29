@@ -29,7 +29,7 @@ var hottest100 = {
 						var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
 						    $img.hide();
 						});
-						var $overlay = $('<div/>').append($track,$artist,$position).addClass('overlay');
+						var $overlay = $('<div/>').append($track, $position).addClass('overlay');
 						var $li = $('<li/>').append($img,$overlay);
 						
 						$elem.append($li);

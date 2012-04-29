@@ -127,11 +127,15 @@ section {
 
 section h1 {
 	font-size: 120%;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
+	padding: 10px;
+	background-color: #eee;
+	font-weight: normal;
+	color: #464646;
 }
 
 section>div {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 #tabs {
@@ -223,6 +227,7 @@ section li {
 	position: relative;
 }
 
+<<<<<<< HEAD
 section>div {
 	margin-bottom: 20px;
 }
@@ -232,6 +237,8 @@ section li:hover div.overlay {
 	height: 100%;
 }
 
+=======
+>>>>>>> css info page + a few other bits
 section div.overlay {
 	width: 93%;
 	padding: 4%;
@@ -380,8 +387,55 @@ content:"@";
 	position: relative;
 	overflow: hidden;
 	color: white;
-	background-color: #EEE;
+	background-color: #eee;
 }
+
+#hottest100 li .position {
+	font-size: 1.1em;
+}
+
+#hottest100 li .track {
+	font-size: 1.3em;
+	display: block;
+	margin: 0 0 5px;
+}
+
+
+/* Feature Albums ============================================== */
+
+#featurealbums ul {
+	overflow: auto;
+}
+
+#featurealbums li {
+	Display: block;
+	position: relative;
+	overflow: hidden;
+	color: 464646;
+	background-color: #C4C3BF;
+	margin: 0 0 1px;
+}
+
+#featurealbums li .title {
+	float: left;
+	font-size: 1.1em;
+}
+
+#featurealbums li .title a {
+	color: #464646;
+	font-size: 1.1em;
+	padding: 20px;
+	display: block;
+}
+
+#featurealbums li .date {
+	font-size: 1.3em;
+	float: left;
+	padding: 20px;
+	background-color: #000;
+	color: #fff;
+}
+
 
 /* Clear =================================================== */
 

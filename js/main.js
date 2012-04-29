@@ -87,7 +87,8 @@ var helper = {
 		var window_height = $(window).height();
 		var content_height = window_height - 54;
 		$('#content').width(content_width).height(content_height); 
-		$('#content section').width(content_width - 40).height(content_height - 40); 
+		$('#content section').width(content_width - 40).height(content_height - 40);
+		$('#content section h1').width(content_width - 60); 
 	}
 	
 };

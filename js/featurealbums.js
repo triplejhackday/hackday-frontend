@@ -23,7 +23,7 @@ var featurealbums = {
 						
 						var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
 						var $date = $('<p/>').addClass('date').text(date);
-						var $li = $('<li/>').append($title,$date);
+						var $li = $('<li/>').append($date, $title);
 						$elem.append($li);
 					});
 					featurealbums.hasContent = true;
