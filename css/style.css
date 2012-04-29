@@ -227,6 +227,11 @@ section>div {
 	margin-bottom: 20px;
 }
 
+section li:hover div.overlay {
+	top: 0;
+	height: 100%;
+}
+
 section div.overlay {
 	width: 93%;
 	padding: 4%;
@@ -236,6 +241,7 @@ section div.overlay {
 	color: white;
 	background-color: black;
 	z-index: 10;
+	height: auto;
 }
 
 section div.overlay p.title a {

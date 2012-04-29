@@ -88,7 +88,7 @@ var playout = {
 	
 	fixGradient: function() {
 		var min = 100;
-		var max = 230;
+		var max = 200;
 		var count = playout.$elem.find('li').length;
 		var step = (max - min) / count;
 		
