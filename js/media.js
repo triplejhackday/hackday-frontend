@@ -55,7 +55,29 @@ var media = {
 		if(type=="a") {
 			return helper.getAudioPlayerEmbed(id,url);
 		}
+		if(type=="p") {
+			console.log(media.fetchPhotos(url));
+		}
 	
+	},
+	
+	fetchPhotos: function(url) {
+		console.log('json/get_photos.php?url=' + encodeURIComponent(url));
+		$.ajax({
+			dataType: 'jsonp',
+			url: 'json/get_photos.php?url=' + encodeURIComponent(url),
+			success: function(data) {
+				if(data.length>0) {
+					var photos = [];
+					for(var i in data) {
+						photos.push(data[i]);
+					}
+				}
+			},
+			error: function() {
+				console.log('error!');
+			}
+		});
 	},
 	
 	getMediaClass: function(char) {
