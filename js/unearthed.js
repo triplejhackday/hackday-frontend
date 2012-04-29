@@ -32,7 +32,7 @@ var unearthed = {
 					$elem.append($li);
 				});
 				
-				helper.initialiseMediaPlayers();
+				setTimeout('helper.initialiseMediaPlayers()',1000);
 			},
 			error: function() {
 				console.log('error!');

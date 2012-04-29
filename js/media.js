@@ -40,7 +40,6 @@ var media = {
 						helper.hideTab(media.$elem);
 					} else {
 						helper.showTab(media.$elem);
-						helper.initialiseMediaPlayers();
 					}
 				} else {
 					helper.hideTab(media.$elem);
