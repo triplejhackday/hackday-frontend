@@ -100,15 +100,11 @@ var helper = {
 	},
 	
 	initialiseAudioPlayers: function() {
-		console.log('audio');
 		var jplayer_div = '<div class="jp-jplayer" id="jquery_jplayer_@X" data-src="@Z"></div><div class="jp-audio"><div id="jp_interface_@X" class="jp-interface"><ul class="jp-controls"><li><a href="#" class="jp-play" tabindex="1"></a></li><li><a href="#" class="jp-pause" tabindex="1"></a></li></ul></div></div>';
 		$('div.simple-mp3').each(function() {
 			mp3_src = $(this).attr('data-src');
 			id = $(this).attr('data-id');
-			console.log(this);
-			console.log(id);
 			$(this).before(jplayer_div.replace(/@X/g,id).replace(/@Z/g,mp3_src));
-			//$("#jquery_jplayer_" + id).jPlayer({
 			$("#jquery_jplayer_" + id).jPlayer({
 				ready: function () {
 					var mp3_src = $(this).attr('data-src');
@@ -121,12 +117,8 @@ var helper = {
 							mp3: mp3_src
 						});
 					}
-					console.log(this);
-					console.log(mp3_src);
 				},
 				play: function (event) {
-					console.log('aaa');
-					console.log(event);
 					$(this).jPlayer("pauseOthers");
 				},
 				supplied: "mp3",
