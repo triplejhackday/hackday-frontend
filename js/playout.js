@@ -9,12 +9,12 @@ var playout = {
 		
 		$.ajax({
 			dataType: 'jsonp',
-			url: playout.plays_query + '14',
+			url: playout.plays_query + '24',
 			success: function(data) {
 				var count = 0;
 				var prev_track_id = "";
 				$(data).each(function() {
-					if(count>9) {
+					if(count>19) {
 						return false;
 					}
 					var id = this.track_id;

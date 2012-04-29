@@ -72,6 +72,7 @@ var helper = {
 	},
 	
 	update: function() {
+		helper.killPlayers();
 		hottest100.update(helper.artist);
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);
@@ -126,6 +127,12 @@ var helper = {
 				preload: 'none',
 				cssSelectorAncestor: "#jp_interface_" + id
 			});
+		});
+	},
+	
+	killPlayers: function() {
+		$('.jp-jplayer').each(function() {
+			$(this).jPlayer("destroy");
 		});
 	}
 	
