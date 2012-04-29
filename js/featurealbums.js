@@ -27,9 +27,11 @@ var featurealbums = {
 						$elem.append($li);
 					});
 					featurealbums.hasContent = true;
+					helper.showTab(featurealbums.$elem);
 					helper.showTab(info.$elem);
 				} else {
 					featurealbums.hasContent = false;
+					helper.hideTab(featurealbums.$elem);
 					helper.hideTab(info.$elem);
 				}
 			},

@@ -28,9 +28,11 @@ var hottest100 = {
 						$elem.append($li);
 					});
 					hottest100.hasContent = true;
+					helper.showTab(hottest100.$elem);
 					helper.showTab(info.$elem);
 				} else {
 					hottest100.hasContent = false;
+					helper.hideTab(hottest100.$elem);
 					helper.hideTab(info.$elem);
 				}
 			},
