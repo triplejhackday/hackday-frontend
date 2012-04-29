@@ -18,19 +18,17 @@ var media = {
 					$(data).each(function() {
 						var url = this.url;
 						var title = this.title;
-						var description = this.description;
 						var date = this.date;
 						var type = this.type;
 						var img = helper.getLargeImage(this.image);
 						
-						var $title = $('<p/>').addClass('title').append($('<a/>').text(title + ' [' + type + ']').attr('href',url).attr('target','_blank'));
+						var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
 						var $date = $('<p/>').addClass('date').text(date);
-						var $description = $('<p/>').addClass('description').text(description);
 						var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
 						    $img.hide();
 						});
-						var $overlay = $('<div/>').append($title,$date,$description).addClass('overlay');
-						var $li = $('<li/>').append($img,$overlay)
+						var $overlay = $('<div/>').append($title,$date).addClass('overlay');
+						var $li = $('<li/>').append($img,$overlay).addClass(media.getMediaClass(type));
 						$elem.append($li);
 					});
 					helper.showTab(media.$elem);
@@ -42,6 +40,14 @@ var media = {
 				console.log('error!');
 			}
 		});
+	},
+	
+	getMediaClass: function(char) {
+		var mediaClass = ""
+		if(char == 'a') { mediaClass = "audio";}
+		if(char == 'p') { mediaClass = "photo";}
+		if(char == 'v') { mediaClass = "video";}
+		return mediaClass;
 	}
 
 }
