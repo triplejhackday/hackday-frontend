@@ -91,7 +91,7 @@ var helper = {
 	},
 	
 	getAudioPlayerEmbed: function(id,url) {
-		return $('<div/>').addClass("jp-player").attr('id','jquery_jplayer_' + id).attr('data-src',url).html('<div class="jp-audio"><div id="jp_interface_' + id + '" class="jp-interface"><ul class="jp-controls"><li><a href="#" class="jp-play" tabindex="1"></a></li><li><a href="#" class="jp-pause" tabindex="1"></a></li></ul></div>');
+		return '<div class="simple-mp3" data-src="' + url + '" data-id="' + id + '"></div>';
 	},
 	
 	initialiseMediaPlayers: function() {
@@ -101,23 +101,33 @@ var helper = {
 	
 	initialiseAudioPlayers: function() {
 		console.log('audio');
-		$('.jp-player').each(function() {
-			console.log($(this));
+		var jplayer_div = '<div class="jp-jplayer" id="jquery_jplayer_@X"></div><div class="jp-audio"><div id="jp_interface_@X" class="jp-interface"><ul class="jp-controls"><li><a href="#" class="jp-play" tabindex="1"></a></li><li><a href="#" class="jp-pause" tabindex="1"></a></li></ul></div></div>';
+		$('div.simple-mp3').each(function() {
 			mp3_src = $(this).attr('data-src');
-			id = $(this).attr('id').replace('jp_player_','jp_interface_');
-			$(this).jPlayer({
+			id = $(this).attr('data-id');
+			$(this).before(jplayer_div.replace(/@X/g,id));
+			console.log(mp3_src);
+			console.log(id);
+			$("#jquery_jplayer_" + id).jPlayer({
 				ready: function () {
-					$(this).jPlayer("setMedia", {
-						mp3: mp3_src
-					});
+					if(mp3_src.indexOf('rtmp:') !== -1) {
+						$(this).jPlayer("setMedia", {
+							rtmpa: mp3_src
+						});
+					} else {
+						$(this).jPlayer("setMedia", {
+							mp3: mp3_src
+						});
+					}
 				},
 				play: function (event) {
+					console.log('aaa');
 					$(this).jPlayer("pauseOthers");
 				},
-				swfPath: "js",
 				supplied: "mp3",
+				swfPath: "js",
 				preload: 'none',
-				cssSelectorAncestor: id
+				cssSelectorAncestor: "#jp_interface_" + id
 			});
 		});
 	}

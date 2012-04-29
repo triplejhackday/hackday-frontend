@@ -15,25 +15,33 @@ var media = {
 			success: function(data) {
 				if(data.length>0) {
 					$(data).each(function() {
-						var id = this.media_id;
-						var url = this.url;
-						var title = this.title;
-						var date = this.date;
-						var type = this.type;
-						var img = media.getLargeImage(this.image);
-						
-						var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
-						var $date = $('<p/>').addClass('date').text(date);
-						var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
-						    $img.hide();
-						});
-						var $media = media.getMedia(type,url);
-						var $overlay = $('<div/>').append($title,$date,$media).addClass('overlay');
-						var $li = $('<li/>').append($img,$overlay).addClass(media.getMediaClass(type));
-						$elem.append($li);
+						var mediaContent = this.content;
+						if(mediaContent) {
+							var id = this.media_id;
+							var url = this.url;
+							
+							var title = this.title;
+							var date = this.date;
+							var type = this.type;
+							var img = media.getLargeImage(this.image);
+							
+							var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
+							var $date = $('<p/>').addClass('date').text(date);
+							var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
+							    $img.hide();
+							});
+							var $media = media.getMedia(type,id,mediaContent);
+							var $overlay = $('<div/>').append($title,$date,$media).addClass('overlay');
+							var $li = $('<li/>').append($img,$overlay).addClass(media.getMediaClass(type));
+							$elem.append($li);
+						}
 					});
-					helper.showTab(media.$elem);
-					helper.initialiseMediaPlayers();
+					if($elem.find('li').length == 0) {
+						helper.hideTab(media.$elem);
+					} else {
+						helper.showTab(media.$elem);
+						helper.initialiseMediaPlayers();
+					}
 				} else {
 					helper.hideTab(media.$elem);
 				}
