@@ -4,8 +4,10 @@
 
 var hottest100 = {
 	baseurl: 'http://triplejgizmo.abc.net.au/hottest100/json/index.php',
+	hasContent: null,
 	
 	update: function(artist) {
+		hottest100.hasContent = null;
 		var $elem = hottest100.$elem.find('ul');
 		$elem.empty();
 		var query = hottest100.baseurl + '?artist=' + encodeURIComponent(artist);
@@ -25,8 +27,11 @@ var hottest100 = {
 						var $li = $('<li/>').append($track,$artist,$position);
 						$elem.append($li);
 					});
+					hottest100.hasContent = true;
+					helper.showTab(info.$elem);
 				} else {
-					$elem.append($('<p/>').html('No results'));
+					hottest100.hasContent = false;
+					helper.hideTab(info.$elem);
 				}
 			},
 			error: function() {

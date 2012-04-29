@@ -33,9 +33,9 @@ var media = {
 						var $li = $('<li/>').append($img,$overlay)
 						$elem.append($li);
 					});
-					
+					helper.showTab(media.$elem);
 				} else {
-					$elem.append($('<p/>').html('No results'));
+					helper.hideTab(media.$elem);
 				}
 			},
 			error: function() {

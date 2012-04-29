@@ -17,6 +17,7 @@ var helper = {
 		hottest100.$elem = $('#hottest100');
 		media.$elem = $('#media');
 		featurealbums.$elem = $('#featurealbums');
+		info.$elem = $('#info');
 		tweets.$elem = $('#tweets');
 		program.$elem = $('#program');
 	},
@@ -44,6 +45,23 @@ var helper = {
 			$('#content').scrollTo(tab, 500);
 			e.preventDefault();
 		});
+	},
+	
+	showTab: function($elem) {
+		var id = $elem.attr('id');
+		if(id == 'info' && (hottest100.hasContent === null || featurealbums.hasContent === null)) {
+			return;
+		}
+		var tab = '#tabs li[data-tab=' + $elem.attr('id') + ']';
+		$(tab).show();
+		$elem.show();
+	},
+	
+	hideTab: function($elem) {
+		var id = $elem.attr('id');
+		var tab = '#tabs li[data-tab=' + id + ']';
+		$(tab).hide();
+		$elem.hide();
 	},
 	
 	resetTabs: function() {
