@@ -19,16 +19,20 @@ var unearthed = {
 					var artist = this.artist;
 					var title = this.trackname;
 					var img = this.artwork;
+					var id = this.productid;
 					
 					var $title = $('<p/>').addClass('title').text(title)
 					var $artist= $('<p/>').addClass('artist').text(artist);
 					var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
 					    $img.hide();
 					});
-					var $overlay = $('<div/>').append($artist,$title).addClass('overlay');
+					var $media = helper.getAudioPlayerEmbed('u' + id,trackUrl);
+					var $overlay = $('<div/>').append($artist,$title,$media).addClass('overlay');
 					var $li = $('<li/>').append($img,$overlay);
 					$elem.append($li);
 				});
+				
+				helper.initialiseMediaPlayers();
 			},
 			error: function() {
 				console.log('error!');
