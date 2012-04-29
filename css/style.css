@@ -206,7 +206,7 @@ section>div {
 	height: 34px;
 	width: 110px;
 	text-align: center;
-	line-height: 40px;
+	margin: 15px 0 0;
 }
 img.bg {
 	width: 100%;
