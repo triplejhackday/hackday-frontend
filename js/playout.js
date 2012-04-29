@@ -71,7 +71,7 @@ var playout = {
 		}
 		var $artist = $('<p/>').addClass('artist').html(artist);
 		var $track = $('<p/>').addClass('track').html(track);
-		var $info = $('<div/>').append($artist,$track);
+		var $info = $('<div/>').append($track, $artist);
 		var $img = $('<img/>').attr('src',img);
 		return $('<li/>').attr('id',id).append($img,$info);
 	},
