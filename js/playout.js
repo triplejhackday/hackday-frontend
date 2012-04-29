@@ -23,8 +23,8 @@ var playout = {
 						var $li = playout.formatTrack(this);
 						playout.$elem.append($li);
 						if(count==0) {
-							helper.artist = this.artist;
-							helper.track = this.track;
+							helper.artist = this.artistname;
+							helper.track = this.title;
 							helper.trackId = id; 
 							playout.$elem.find('li:first-child').addClass('active');
 							helper.update();

@@ -77,10 +77,6 @@ var helper = {
 		//tweets.update(helper.artist);
 	},
 	
-	getLargeImage: function(url) {
-		return url.replace('100.jpg','340.jpg');
-	},
-	
 	resize: function() {
 		var tab = '#' + $('#tabs li.active').attr('data-tab');
 		$('#content').scrollTo(tab, 0);
