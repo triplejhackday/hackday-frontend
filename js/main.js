@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 var helper = {
 	default_album_image: 'http://www.abc.net.au/triplej/albums/default/covers/100.jpg',
-	checkInterval: 30000, 
+	checkInterval: 30000,
 	
 	getElems: function() {
 		playout.$elem = $('#play-history');

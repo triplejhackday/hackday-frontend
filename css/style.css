@@ -336,6 +336,19 @@ section div.overlay p.description {
 	background-color: #EEE;
 }
 
+/* Unearthed =============================================== */
+
+#unearthed li {
+	width: 340px;
+	height: 227px;
+	margin: 0 1px 1px 0;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	color: white;
+	background-color: #EEE;
+}
+
 
 /* Tweets ================================================== */
 

@@ -15,6 +15,7 @@ var media = {
 			success: function(data) {
 				if(data.length>0) {
 					$(data).each(function() {
+						var id = this.media_id;
 						var url = this.url;
 						var title = this.title;
 						var date = this.date;
@@ -27,6 +28,7 @@ var media = {
 						    $img.hide();
 						});
 						var $overlay = $('<div/>').append($title,$date).addClass('overlay');
+						var $media = media.getMedia(type,url);
 						var $li = $('<li/>').append($img,$overlay).addClass(media.getMediaClass(type));
 						$elem.append($li);
 					});
@@ -39,6 +41,21 @@ var media = {
 				console.log('error!');
 			}
 		});
+	},
+	
+	getMedia: function(type,id,url) {
+		var $media = $('<div/>');
+		/*
+		if(type=="a") {
+			$media.addClass('simple-mp3').addId(')
+			<div class="simple-mp3">
+			<p class="audio-artist">Damn Terran</p>
+			<p class="audio-track"><a href="http://mpegmedia.abc.net.au/triplej/newmusic/damn_terran/rebels.mp3">Rebels</a></p>
+			</div>
+
+		}
+		*/
+	
 	},
 	
 	getMediaClass: function(char) {

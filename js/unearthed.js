@@ -19,6 +19,7 @@ var unearthed = {
 					var trackUrl = this.download;
 					var artist = this.artist;
 					var title = this.trackname;
+					var img = this.artwork;
 					
 					var $title = $('<p/>').addClass('title').text(title)
 					var $artist= $('<p/>').addClass('artist').text(artist);
