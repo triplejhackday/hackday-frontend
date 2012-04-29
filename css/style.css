@@ -145,8 +145,12 @@ section>div {
 	list-style-type: none;
 }
 
+#tabs li:first-child {
+	display: block;
+}
+
 #tabs li {
-	cursor: hand;
+	cursor: pointer;
 	float: left;
 	display: none;
 	padding: 20px 40px;
