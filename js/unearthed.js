@@ -9,7 +9,6 @@ var unearthed = {
 		var $elem = unearthed.$elem.find('ul');
 		$elem.empty();
 		var query = unearthed.baseurl + '?artist=' + encodeURIComponent(artist) + '&track=' + encodeURIComponent(track);
-		console.log(query);
 		$.ajax({
 			dataType: 'jsonp',
 			url: query,

@@ -332,7 +332,7 @@ section div.overlay p.description {
 
 /* Media =================================================== */
 
-#media li {
+#media>ul>li {
 	width: 340px;
 	height: 227px;
 	margin: 0 1px 1px 0;
@@ -345,7 +345,7 @@ section div.overlay p.description {
 
 /* Unearthed =============================================== */
 
-#unearthed li {
+#unearthed>ul>li {
 	width: 340px;
 	height: 227px;
 	margin: 0 1px 1px 0;
@@ -433,7 +433,38 @@ content:"@";
 	float: left;
 	padding: 20px;
 	background-color: #000;
-	color: #fff;
+	color: #fff;	
+}
+
+/* JPlayer */
+
+.jp-controls {
+	list-style-type: none;
+}
+
+a.jp-play, a.jp-pause {
+	height: 27px;
+	width: 27px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	border: 1px solid white;
+}
+
+a.jp-play {
+	background: #fff url('http://www.abc.net.au/triplej/img/hp/ico.png') 0 -340px no-repeat;
+}
+
+a.jp-pause {
+	background: #fff url('http://www.abc.net.au/triplej/img/hp/ico.png') 0 -367px no-repeat;
+}
+
+a.jp-play:hover {
+	background: #fff url('http://www.abc.net.au/triplej/img/hp/ico.png') -27px -340px no-repeat;
+}
+
+a.jp-pause:hover {
+	background: #fff url('http://www.abc.net.au/triplej/img/hp/ico.png') -27px -367px no-repeat;
 }
 
 

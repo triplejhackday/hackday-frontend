@@ -86,9 +86,40 @@ var helper = {
 		var content_width = window_width - 250;
 		var window_height = $(window).height();
 		var content_height = window_height - 54;
-		$('#content').width(content_width).height(content_height); 
-		$('#content section').width(content_width - 40).height(content_height - 40);
-		$('#content section h1').width(content_width - 60); 
+		$('#content').width(content_width).height(content_height);
+		$('#content section').width(content_width - 40).height(content_height - 40); 
+	},
+	
+	getAudioPlayerEmbed: function(id,url) {
+		return $('<div/>').addClass("jp-player").attr('id','jquery_jplayer_' + id).attr('data-src',url).html('<div class="jp-audio"><div id="jp_interface_' + id + '" class="jp-interface"><ul class="jp-controls"><li><a href="#" class="jp-play" tabindex="1"></a></li><li><a href="#" class="jp-pause" tabindex="1"></a></li></ul></div>');
+	},
+	
+	initialiseMediaPlayers: function() {
+		console.log('init players');
+		helper.initialiseAudioPlayers();
+	},
+	
+	initialiseAudioPlayers: function() {
+		console.log('audio');
+		$('.jp-player').each(function() {
+			console.log($(this));
+			mp3_src = $(this).attr('data-src');
+			id = $(this).attr('id').replace('jp_player_','jp_interface_');
+			$(this).jPlayer({
+				ready: function () {
+					$(this).jPlayer("setMedia", {
+						mp3: mp3_src
+					});
+				},
+				play: function (event) {
+					$(this).jPlayer("pauseOthers");
+				},
+				swfPath: "js",
+				supplied: "mp3",
+				preload: 'none',
+				cssSelectorAncestor: "#jp_interface_" + i
+			});
+		});
 	}
 	
 };
