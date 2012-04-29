@@ -18,7 +18,8 @@ var helper = {
 		media.$elem = $('#media');
 		featurealbums.$elem = $('#featurealbums');
 		info.$elem = $('#info');
-		tweets.$elem = $('#tweets');
+		//tweets.$elem = $('#tweets');
+		unearthed.$elem = $('#unearthed');
 		program.$elem = $('#program');
 	},
 	
@@ -74,6 +75,7 @@ var helper = {
 		hottest100.update(helper.artist);
 		media.update(helper.artist);
 		featurealbums.update(helper.artist);
+		unearthed.update(helper.artist,helper.track);
 		//tweets.update(helper.artist);
 	},
 	

@@ -31,6 +31,7 @@ var playout = {
 						}
 						count++;
 					}
+					playout.fixGradient();
 				});
 			},
 			error: function() {
@@ -51,7 +52,8 @@ var playout = {
 				if(new_id!=current_id) {
 					var $li = playout.formatTrack(track);
 					playout.$elem.prepend($li);
-					console.log('--- prepended track!');
+					playout.fixGradient();
+					
 				}
 			},
 			error: function() {
@@ -82,6 +84,19 @@ var playout = {
 	
 	getCurrentTrack: function() {
 		return playout.$elem.find('li:first-child .track').text();
+	},
+	
+	fixGradient: function() {
+		var min = 70;
+		var max = 200;
+		var count = playout.$elem.find('li').length;
+		var step = (max - min) / count;
+		
+		playout.$elem.find('li').each(function() {
+			var color = 'rgb(' + min + ',' + min + ',' + min + ')';
+			$(this).css('background-color',color);
+			min = min + step;
+		});
 	}
 	
 };
