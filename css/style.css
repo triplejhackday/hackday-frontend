@@ -364,6 +364,11 @@ section div.overlay p.description {
 	background-color: #EEE;
 }
 
+#unearthed>ul>li a {
+	color: white;
+}
+
+
 
 /* Tweets ================================================== */
 

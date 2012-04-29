@@ -22,7 +22,7 @@ var unearthed = {
 					var id = this.productid;
 					
 					var $title = $('<p/>').addClass('title').text(title)
-					var $artist= $('<p/>').addClass('artist').text(artist);
+					var $artist= $('<p/>').addClass('artist').append($("<a/>").text(artist).attr('target','_blank').attr('href',artistUrl));
 					var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
 					    $img.hide();
 					});
