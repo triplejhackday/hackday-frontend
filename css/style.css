@@ -203,7 +203,7 @@ section>div {
 	height: 34px;
 	width: 110px;
 	text-align: center;
-	padding: 20px 0 0;
+	line-height: 40px;
 }
 img.bg {
 	width: 100%;
