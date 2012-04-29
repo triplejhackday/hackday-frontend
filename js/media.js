@@ -25,13 +25,21 @@ var media = {
 							var type = this.type;
 							var img = media.getLargeImage(this.image);
 							
-							var $title = $('<p/>').addClass('title').append($('<a/>').text(title).attr('href',url).attr('target','_blank'));
+							var $title = $('<p/>').addClass('title').text(title);
 							var $date = $('<p/>').addClass('date').text(date);
 							var $img = $('<img/>').attr('src',img).addClass('bg').error(function() {
 							    $img.hide();
 							});
 							var $media = media.getMedia(type,id,mediaContent);
 							var $overlay = $('<div/>').append($title,$date,$media).addClass('overlay');
+							if(type != "a") {
+								var text = 'view gallery';
+								if(type == "v") {
+									text = 'watch video';
+								}
+								var $link = $('<a/>').addClass('view').attr('target',"_blank").attr('href',url).text(text);
+								$overlay.append($link);
+							}
 							var $li = $('<li/>').append($img,$overlay).addClass(media.getMediaClass(type));
 							$elem.append($li);
 						}
@@ -56,11 +64,11 @@ var media = {
 			return helper.getAudioPlayerEmbed(id,url);
 		}
 		if(type=="p") {
-			console.log(media.fetchPhotos(url));
+			//console.log(media.fetchPhotos(url));
 		}
 	
 	},
-	
+	/*
 	fetchPhotos: function(url) {
 		console.log('json/get_photos.php?url=' + encodeURIComponent(url));
 		$.ajax({
@@ -80,6 +88,10 @@ var media = {
 		});
 	},
 	
+	addPhotoGallery: function($elem,photos) {
+		return;
+	}
+	*/
 	getMediaClass: function(char) {
 		var mediaClass = "";
 		if(char == 'a') { mediaClass = "audio";}
