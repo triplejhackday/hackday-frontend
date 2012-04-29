@@ -117,7 +117,7 @@ var helper = {
 				swfPath: "js",
 				supplied: "mp3",
 				preload: 'none',
-				cssSelectorAncestor: "#jp_interface_" + i
+				cssSelectorAncestor: id
 			});
 		});
 	}

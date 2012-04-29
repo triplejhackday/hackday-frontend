@@ -227,7 +227,6 @@ section li {
 	position: relative;
 }
 
-<<<<<<< HEAD
 section>div {
 	margin-bottom: 20px;
 }
@@ -237,8 +236,6 @@ section li:hover div.overlay {
 	height: 100%;
 }
 
-=======
->>>>>>> css info page + a few other bits
 section div.overlay {
 	width: 93%;
 	padding: 4%;
