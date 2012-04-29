@@ -148,7 +148,7 @@ section>div {
 #tabs li {
 	cursor: hand;
 	float: left;
-	display: block;
+	display: none;
 	padding: 20px 40px;
 }
 
@@ -159,6 +159,7 @@ section>div {
 #tabs li.active {
 	background-color: #939393;
 	color: #fff;
+	display: block;
 }
 
 #sidebar {
