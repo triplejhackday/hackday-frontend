@@ -21,7 +21,7 @@ var hottest100 = {
 						var track = this.track;
 						var position = this.position;
 						var year = this.year;
-						var img = 'img/hottest100/' + year + '/' + position + '.jpg';
+						var img = 'http://54.248.108.172/img/hottest100/' + year + '/' + position + '.jpg';
 						
 						var $artist = $('<p/>').addClass('artist').text(artist);
 						var $track = $('<p/>').addClass('track').text(track);
