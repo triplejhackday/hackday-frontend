@@ -16,9 +16,11 @@ if(strlen($q)>2) {
 	$sth = $db->prepare($query);
 	$sth->execute($params);
 	$output = $sth->fetchAll(PDO::FETCH_COLUMN);
+	/*
 	foreach($output as &$item) {
 		$item = wrapTerm($item,$q);
 	}
+	*/
 	outputJson($output,$callback);
 }
 
